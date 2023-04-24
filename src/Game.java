@@ -1,7 +1,9 @@
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.IOException;
 import java.net.URL;
 
 public class Game extends JPanel {
@@ -22,10 +24,10 @@ public class Game extends JPanel {
      public static int score=0;
     static int level=1;
 
-    public Game() {
+    public Game()  {
 
-        directionSoundJump = getClass().getResource("/Multimedia/salto.wav");
-        //soundJump=Applet.newAudioClip(directionSoundJump);
+
+        //Thread.sleep(clip.getMicrosecondLength() / 1000);
         directionSoundLose = getClass().getResource("/Multimedia/muerte.wav");
         //soundLose=Applet.newAudioClip(directionSoundLose);
 
@@ -37,7 +39,30 @@ public class Game extends JPanel {
             public void keyPressed(KeyEvent e) {
                 //El salto se activa al darle espacio
             if(e.getKeyCode()==KeyEvent.VK_SPACE){
-                //soundJump.play();
+                directionSoundJump = getClass().getResource("/Multimedia/salto.wav");
+                //soundJump=Applet.newAudioClip(directionSoundJump);
+                AudioInputStream audioInputStream = null;
+                try {
+                    audioInputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/Multimedia/salto.wav"));
+                } catch (UnsupportedAudioFileException s) {
+                    throw new RuntimeException(s);
+                } catch (IOException s) {
+                    throw new RuntimeException(s);
+                }
+                Clip clip = null;
+                try {
+                    clip = AudioSystem.getClip();
+                } catch (LineUnavailableException s) {
+                    throw new RuntimeException(s);
+                }
+                try {
+                    clip.open(audioInputStream);
+                } catch (LineUnavailableException s) {
+                    throw new RuntimeException(s);
+                } catch (IOException s) {
+                    throw new RuntimeException(s);
+                }
+                clip.start();
                 player.KeyPressed(e);
                 }
             }
@@ -84,12 +109,59 @@ public class Game extends JPanel {
      }
     }
     public void GameOver(){
+        directionSoundJump = getClass().getResource("/Multimedia/muerte.wav");
+        //soundJump=Applet.newAudioClip(directionSoundJump);
+        AudioInputStream audioInputStream = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/Multimedia/muerte.wav"));
+        } catch (UnsupportedAudioFileException s) {
+            throw new RuntimeException(s);
+        } catch (IOException s) {
+            throw new RuntimeException(s);
+        }
+        Clip clip = null;
+        try {
+            clip = AudioSystem.getClip();
+        } catch (LineUnavailableException s) {
+            throw new RuntimeException(s);
+        }
+        try {
+            clip.open(audioInputStream);
+        } catch (LineUnavailableException s) {
+            throw new RuntimeException(s);
+        } catch (IOException s) {
+            throw new RuntimeException(s);
+        }
+        clip.start();
         gameOver=true;
-        //soundLose.play;
+
     }
 
     public void LoseLives(){
-        //soundLose.play;
+        directionSoundJump = getClass().getResource("/Multimedia/muerte.wav");
+        //soundJump=Applet.newAudioClip(directionSoundJump);
+        AudioInputStream audioInputStream = null;
+        try {
+            audioInputStream = AudioSystem.getAudioInputStream(getClass().getResourceAsStream("/Multimedia/muerte.wav"));
+        } catch (UnsupportedAudioFileException s) {
+            throw new RuntimeException(s);
+        } catch (IOException s) {
+            throw new RuntimeException(s);
+        }
+        Clip clip = null;
+        try {
+            clip = AudioSystem.getClip();
+        } catch (LineUnavailableException s) {
+            throw new RuntimeException(s);
+        }
+        try {
+            clip.open(audioInputStream);
+        } catch (LineUnavailableException s) {
+            throw new RuntimeException(s);
+        } catch (IOException s) {
+            throw new RuntimeException(s);
+        }
+        clip.start();
         loseLives=true;
     }
 

@@ -1,4 +1,7 @@
+import javax.sound.sampled.LineUnavailableException;
+import javax.sound.sampled.UnsupportedAudioFileException;
 import javax.swing.*;
+import java.io.IOException;
 import java.security.Principal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -7,7 +10,7 @@ import java.util.logging.Logger;
 
 public class Main {
     public static int restartGame=-1;
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
        //JOptionPane.showMessageDialog(null, "READY?");
 
         JFrame window = new JFrame("Juego estilo dinosaurio");
