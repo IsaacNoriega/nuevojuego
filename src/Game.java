@@ -12,7 +12,7 @@ public class Game extends JPanel {
     URL directionSoundJump,directionSoundLose;
     //AudioClip soundJump,soundLose;
 
-    //Enemigo,jugadore y fondo
+    //Enemigo,jugadore y fondo -
     Player player = new Player(this);
     Enemy enemy = new Enemy(this);
     BackGround backGround = new BackGround(this);

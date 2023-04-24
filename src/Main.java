@@ -22,7 +22,7 @@ public class Main {
         window.setVisible(true);
         window.setResizable(false);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+//rw
 
         while (true) {
             if(Game.gameOver){

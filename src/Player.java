@@ -37,7 +37,7 @@ public class Player {
                 y_aux=-2;
                 down=false;
             }
-            if(y_init==200){//Limite de salto
+            if(y_init==200){//Limite de salto -
                 down=true;
                 y_aux=2;
                 up=false;
