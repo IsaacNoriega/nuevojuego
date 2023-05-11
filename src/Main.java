@@ -1,7 +1,5 @@
-import javax.sound.sampled.LineUnavailableException;
-import javax.sound.sampled.UnsupportedAudioFileException;
+
 import javax.swing.*;
-import java.io.IOException;
 import java.security.Principal;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -11,8 +9,7 @@ import java.util.logging.Logger;
 public class Main {
     public static int restartGame=-1;
     public static void main(String[] args)  {
-       //JOptionPane.showMessageDialog(null, "READY?");
-
+       JOptionPane.showMessageDialog(null, "READY?");
         JFrame window = new JFrame("Juego estilo dinosaurio");
         Game game1 = new Game();
         //Propiedades de la ventana
@@ -28,7 +25,7 @@ public class Main {
             if(Game.gameOver){
                 restartGame=JOptionPane.showConfirmDialog(null,"You lose , RESTART?","You lose",JOptionPane.YES_NO_OPTION);
                 if (restartGame==0){
-                    restartValues();
+                    Game.restartValues();
                 }else if(restartGame==1){
                     System.exit(restartGame);
                 }
@@ -50,16 +47,5 @@ public class Main {
                 }
             }
         }
-    }
-
-    public static void restartValues(){
-        Game.gameOver=false;
-        Enemy.x_aux=-4;
-        Game.score=0;
-        Game.lives=3;
-        Game.level=1;
-        restartGame=-1;
-        Enemy.x_init=1300;
-
     }
 }

@@ -7,6 +7,8 @@ import java.io.IOException;
 import java.net.URL;
 
 public class Game extends JPanel {
+    public static int restartGame=-1;
+
 
     //Sonido del juego
     URL directionSoundJump,directionSoundLose;
@@ -164,5 +166,14 @@ public class Game extends JPanel {
         clip.start();
         loseLives=true;
     }
+    public static void restartValues(){
+        Game.gameOver=false;
+        Enemy.x_aux=-4;
+        Game.score=0;
+        Game.lives=3;
+        Game.level=1;
+        restartGame=-1;
+        Enemy.x_init=1300;
 
+    }
 }
