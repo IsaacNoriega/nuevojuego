@@ -9,4 +9,7 @@ public class Constants {
     public static final String BACKGROUND="/Multimedia/Fondo mario.png";
     public static final String PLAYER="/Multimedia/marrio.gif";
     public static final String ENEMY="/Multimedia/goomba.gif";
+    public static final String JUMP_SOUND= "/Multimedia/salto.wav";
+    public static final String LOSE_SOUND= "/Multimedia/muerte.wav";
+
 }
