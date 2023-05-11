@@ -54,7 +54,7 @@ public class Player {
     }
 
     public void paint(Graphics2D g2) {
-        ImageIcon player = new ImageIcon(getClass().getResource("/Multimedia/marrio.gif"));
+        ImageIcon player = new ImageIcon(getClass().getResource(Window.player));
         g2.drawImage(player.getImage(), x_init, y_init, widthPlayer, heightPlayer, null);
 
     }

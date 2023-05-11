@@ -24,7 +24,7 @@ public class BackGround {
     }
 
     public void paint(Graphics2D g2) {
-        ImageIcon backGround = new ImageIcon(Objects.requireNonNull(getClass().getResource("/Multimedia/Fondo mario.png")));
+        ImageIcon backGround = new ImageIcon(Objects.requireNonNull(getClass().getResource(Window.background)));
         g2.drawImage(backGround.getImage(), x1, y1, Window.width, Window.height, null);
         g2.drawImage(backGround.getImage(), x2, y2, Window.width, Window.height, null);
 

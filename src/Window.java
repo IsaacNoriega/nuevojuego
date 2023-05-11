@@ -7,7 +7,7 @@ public class Window extends JFrame {
     private Game game1;
     protected static int width, height;
     private int x, y;
-    private String gameName;
+    protected static String gameName,background,player,enemy;
 
     public Window() {
         super("Juego estilo dinosaurio");
@@ -16,6 +16,9 @@ public class Window extends JFrame {
         setHeight(Constants.WINDOW_HEIGHT);
         setX(Constants.WINDOW_POSITION_X);
         setY(Constants.WINDOW_POSITION_Y);
+        setPlayer(Constants.PLAYER);
+        setEnemy(Constants.ENEMY);
+        setBackGround(Constants.BACKGROUND);
         game1 = new Game();
         //Propiedades de la ventana
         add(game1);
@@ -45,8 +48,16 @@ public class Window extends JFrame {
         this.y = y;
     }
 
-    public int getWidth() {
-        return this.width;
+    public void setBackGround(String url) {
+      background=url;
+    }
+
+    public void setEnemy(String url) {
+        enemy = url;
+    }
+
+    public void setPlayer(String url) {
+        player = url;
     }
 
     public int getHeight() {
@@ -55,7 +66,7 @@ public class Window extends JFrame {
 
 
     //Constructor con datos personalizables como nombredel juego,tamaño de pantalla y la posicion
-    public Window(String name, int width, int height, int x, int y) {
+    public Window(String name, int width, int height, int x, int y,String player,String enemy,String background) {
         super(name);
         JOptionPane.showMessageDialog(null, "READY?");
         setGameName(name);
@@ -63,6 +74,9 @@ public class Window extends JFrame {
         setHeight(height);
         setX(x);
         setY(y);
+        setPlayer(player);
+        setEnemy(enemy);
+        setBackGround(background);
         game1 = new Game();
         add(game1);
         //Propiedades de la ventana

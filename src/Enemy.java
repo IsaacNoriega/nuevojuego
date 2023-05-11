@@ -41,7 +41,7 @@ public class Enemy {
     }
 
     public void paint(Graphics2D g2){
-        ImageIcon enemy = new ImageIcon(getClass().getResource("/Multimedia/goomba.gif"));
+        ImageIcon enemy = new ImageIcon(getClass().getResource(Window.enemy));
         g2.drawImage(enemy.getImage(), x_init, y_init, widthEnemy, heightEnemy, null);
     }
 
