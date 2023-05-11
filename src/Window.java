@@ -5,15 +5,16 @@ import java.util.logging.Logger;
 
 public class Window extends JFrame {
     private Game game1;
-    protected static int width, height;
-    private int x, y;
-    protected static String gameName,background,player,enemy,jump,lose;
+    protected static int width, height; //Variables para la anchira y altura de la ventana
+    private int x, y; //Variables para la posicion de la ventana
+    protected static String gameName, background, player, enemy, jump, lose;
 
+    //Este constructor define la ventana del juego con valores por defecto.
     public Window() {
         //Titulo default del juego
         super("Juego estilo dinosaurio");
         JOptionPane.showMessageDialog(null, "READY?");
-        //Setters de valore defaults
+        //Setters de valores defaults
         setWidth(Constants.WINDOW_WIDTH);
         setHeight(Constants.WINDOW_HEIGHT);
         setX(Constants.WINDOW_POSITION_X);
@@ -33,9 +34,9 @@ public class Window extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 
-    //Constructor con datos personalizables como nombredel juego,tamaño de pantalla y la posicion
-    public Window(String name, int width, int height, int x, int y,String player,
-                  String enemy,String background,String jumpSound,String loseSound) {
+    //Constructor que permite personalizar valores de la ventana del juego, como el nombre, tamaño, posición y sonidos.
+    public Window(String name, int width, int height, int x, int y, String player,
+                  String enemy, String background, String jumpSound, String loseSound) {
         super(name);
         JOptionPane.showMessageDialog(null, "READY?");
         setGameName(name);
@@ -51,7 +52,7 @@ public class Window extends JFrame {
         game1 = new Game();
         add(game1);
         //Propiedades de la ventana
-        setSize(this.width, this.height);
+        setSize(Window.width, Window.height);
         setLocation(this.x, this.y);
         setVisible(true);
         setResizable(false);
@@ -67,10 +68,14 @@ public class Window extends JFrame {
     public void setHeight(int height) {
         Window.height = height;
     }
-    public void setX(int x) { this.x = x;}
-    public void setY(int y) {this.y = y; }
+    public void setX(int x) {
+        this.x = x;
+    }
+    public void setY(int y) {
+        this.y = y;
+    }
     public void setBackGround(String url) {
-        background=url;
+        background = url;
     }
     public void setEnemy(String url) {
         enemy = url;
@@ -78,10 +83,14 @@ public class Window extends JFrame {
     public void setPlayer(String url) {
         player = url;
     }
-    public void setJump(String url){ jump=url;}
-    public void setLose(String url){ lose=url; }
+    public void setJump(String url) {
+        jump = url;
+    }
+    public void setLose(String url) {
+        lose = url;
+    }
 
-    //Metodo run , es lo que inicializara el juego
+    //Metodo run , es lo que inicializara y manejara la logica de todo el juego
     public void run() {
         while (true) {
             if (Game.gameOver) {
